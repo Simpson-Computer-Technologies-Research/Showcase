@@ -2,7 +2,7 @@
 ![Capture](https://user-images.githubusercontent.com/75189508/202169296-7b0beb2a-eff3-47c0-9f1e-5786541b40cb.PNG)
 
 # Preview
-https://user-images.githubusercontent.com/75189508/202169312-e34726dc-777d-481d-b6e7-00b4a13b233d.mp4
+https://user-images.githubusercontent.com/75189508/202294837-a226a014-cbec-484a-9949-a3736dc7b097.mp4
 
 # About TellU
 - 
