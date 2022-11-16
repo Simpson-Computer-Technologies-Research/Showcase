@@ -9,7 +9,6 @@ body {
     overflow: hidden;
 }
 * {
-    cursor: none;
     scroll-behavior: smooth; 
 }
 

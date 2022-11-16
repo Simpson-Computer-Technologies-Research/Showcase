@@ -1644,18 +1644,18 @@
   "buffers": [
     {
       "byteLength": 1156948,
-      "uri": "scene.bin"
+      "uri": "./scene.bin"
     }
   ],
   "images": [
     {
-      "uri": "textures/phone_basemat.png"
+      "uri": "./textures/phone_basemat.png"
     },
     {
-      "uri": "textures/phone_wallpaper.png"
+      "uri": "./textures/tellu_wallpaper.png"
     },
     {
-      "uri": "textures/phone_lens.png"
+      "uri": "./textures/phone_lens.png"
     }
   ],
   "materials": [
