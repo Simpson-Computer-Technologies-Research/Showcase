@@ -1,0 +1,29 @@
+{
+	"name": "tellu_app",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"deploy": "node ./gh-pages.js",
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview"
+	},
+	"devDependencies": {
+		"@rollup/plugin-json": "^5.0.0",
+		"@sveltejs/adapter-auto": "next",
+		"@sveltejs/adapter-static": "^1.0.0-next.44",
+		"@sveltejs/kit": "next",
+		"autoprefixer": "^10.4.12",
+		"postcss": "^8.4.17",
+		"svelte": "^3.44.0",
+		"svelte-preprocess": "^4.10.7",
+		"tailwindcss": "^3.1.8",
+		"vite": "^3.1.0"
+	},
+	"type": "module",
+	"dependencies": {
+		"gh-pages": "^4.0.0",
+		"svelte-inview": "^3.0.1",
+		"three": "^0.145.0"
+	}
+}
