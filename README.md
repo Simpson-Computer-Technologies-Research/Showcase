@@ -1,5 +1,8 @@
 # TellU ![Stars](https://img.shields.io/github/stars/realTristan/TellU?color=brightgreen) ![Watchers](https://img.shields.io/github/watchers/realTristan/TellU?label=Watchers)
+![Capture](https://user-images.githubusercontent.com/75189508/202169296-7b0beb2a-eff3-47c0-9f1e-5786541b40cb.PNG)
 
+# Preview
+https://user-images.githubusercontent.com/75189508/202169312-e34726dc-777d-481d-b6e7-00b4a13b233d.mp4
 
 # About TellU
 - 
