@@ -23,6 +23,7 @@
 	"type": "module",
 	"dependencies": {
 		"gh-pages": "^4.0.0",
+		"gsap": "^3.11.3",
 		"svelte-inview": "^3.0.1",
 		"three": "^0.145.0"
 	}

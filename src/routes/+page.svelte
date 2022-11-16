@@ -3,6 +3,11 @@
 	import { setScene } from '$lib/ThreeObject.js';
 	import { fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
+
+	// Import Components
+  	import Home from './components/Home.svelte';
+  	import Polls from './components/Polls.svelte';
+  import Posts from './components/Posts.svelte';
     
 	// Create a new wavy sphere scene
 	let ThreeObject;
@@ -25,36 +30,10 @@
 <!-- Custom Cursor -->
 <div class="cursor fixed pointer-events-none border-2 border-white p-[0.6rem] rounded-full mix-blend-difference z-10 ease-linear"></div>
 
-<!-- Tristan Simpson Header -->
-<h2 class="ml-32 mt-20 2xl:mt-48 font-black text-lg pointer-events-none 2xl:text-2xl text-black font-sans" style="letter-spacing: 8px;" in:fade={{ delay: 300, duration: 1000 }}>
-	UNPARALLEL CONNECTION
-</h2>
-
-<!-- TELLU APP Header -->
-<h2 class="ml-32 font-black text-8xl pointer-events-none 2xl:text-9xl text-white tracking-widest mt-6 font-sans" in:fade={{ delay: 1800, duration: 1000 }}>
-	TELLU APP
-</h2>
-
-<!-- Download App Button -->
-<div class="ml-32 mt-12 h-20">
-	<a class="font-black text-2xl text-black tracking-widest font-sans px-10 hover:text-white hover:px-20 bg-white shadow-xl hover:bg-black p-4 rounded-full duration-500 ease-in-out"
-		href="https://apps.apple.com/us/app/tellu/id6443764288?itsct=apps_box_link&itscg=30200"
-		rel="noopener noreferrer" target="_blank">
-		DOWNLOAD NOW
-	</a>
-</div>
-
-<!-- Triangle Background -->
-<div class="box fixed top-0 w-screen h-screen bg-[#35d0ff]" style="z-index: -2;"></div>
+<!-- Sections -->
+<Home/>
+<Polls/>
+<Posts/>
 
 <!-- The 3D Phone -->
-<canvas bind:this={ThreeObject} class="fixed top-0 right-[-22rem] xl:right-[-30rem] outline-none h-[100vh] w-[100vw]" style="z-index: -1;"/>
-
-
-<!-- CSS Styling -->
-<style>
-
-	.box {
-		clip-path: polygon(0 0, 0% 100%, 100% 0);
-	}
-</style>
+<canvas bind:this={ThreeObject} class="fixed top-0 right-[-22rem] xl:right-[-30rem] outline-none h-[100vh] w-[100vw]"/>

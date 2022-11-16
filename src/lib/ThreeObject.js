@@ -1,12 +1,22 @@
+// 3D Model Imports
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js';
+
+// Three.js Basic Imports
 import { OrbitControls } from '$lib/OrbitalControls.js';
 import * as THREE from 'three';
 
+// GSAP Imports (Scrolling Animations)
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+// GSAP Defaults
+gsap.registerPlugin(ScrollTrigger);
+ScrollTrigger.defaults({ scrub: 0, ease: "expo" });
+
 // Establish a new scene
 const SCENE = new THREE.Scene();
-SCENE.add(new THREE.AmbientLight("#ffffee", 3));
+SCENE.add(new THREE.AmbientLight("#FFFFFF", 2.9));
 
 // Draco Loader for Blender Models
 const DRACO_LOADER = new DRACOLoader()
@@ -20,10 +30,28 @@ GLTF_LOADER.setDRACOLoader(DRACO_LOADER)
 // Load the statue model
 let PhoneModel;
 GLTF_LOADER.load('./iphone.gltf', (model) => {
+	// Phone Model
 	model.material = new THREE.MeshPhysicalMaterial({ roughness: 0, metalness: 1 })
 	PhoneModel = model.scene;
+
+	// Add the phone model to the scene and rotate
+	// it so the screen is facing the user
     SCENE.add(PhoneModel);
-	PhoneModel.rotateY(3);
+	PhoneModel.rotation.set(-0.3, 2.9, 0);
+	
+	// Grab the sections from the page
+	const SECTIONS = document.querySelectorAll('.section')
+
+	// Post Types Section
+	gsap.to(PhoneModel.rotation, { x: Math.PI * 3.9, scrollTrigger: { trigger: SECTIONS[1] } });
+	gsap.to(SCENE.position, { x: -1, scrollTrigger: { trigger: SECTIONS[2] } });
+
+	gsap.to(PhoneModel.scale, {
+		x: 2, y: 2, 
+		scrollTrigger: { trigger: SECTIONS[1] },
+		onComplete: () => Controls.rotateSpeed = 0.01,
+		onReverseComplete: () => Controls.rotateSpeed = 0.1,
+	});
 })
 
 // Camera
@@ -31,6 +59,7 @@ const CAMERA = new THREE.PerspectiveCamera(20, window.innerWidth / window.innerH
 CAMERA.position.set(3, -0.5, 3);
 SCENE.add(CAMERA);
 
+// Point Lighting
 const POINT_LIGHTING = new THREE.PointLight();
 POINT_LIGHTING.position.set(1, 0, 1);
 SCENE.add(POINT_LIGHTING);

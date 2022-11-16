@@ -5,8 +5,6 @@
 /* Body */
 body {
     overscroll-behavior: none;
-    font-family: 'Nanum Myeongjo', serif;
-    overflow: hidden;
 }
 * {
     scroll-behavior: smooth; 
@@ -16,5 +14,5 @@ body {
 :root::-webkit-scrollbar { width: 0.25rem; }
 :root::-webkit-scrollbar-track { background: transparent; }
 :root::-webkit-scrollbar-thumb { background: #696969; }
-:root::-webkit-scrollbar-thumb:hover { background: #38ffff; }
+:root::-webkit-scrollbar-thumb:hover { background: #35d0ff; }
 
