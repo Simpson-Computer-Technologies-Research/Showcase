@@ -7,8 +7,6 @@
 	// Create a new wavy sphere scene
 	let ThreeObject;
 
-	let test = false;
-
 	// On site load
     onMount(async () => {
 		// Set the threejs scene
@@ -21,8 +19,6 @@
         document.addEventListener('mousemove', (e) => 
             CUSTOM_CURSOR.style.cssText =`left: ${e.clientX - 11.5}px; top: ${e.clientY - 13}px;`, false
         );
-
-		setTimeout(() => test = true)
     });
 </script>
 
@@ -30,12 +26,12 @@
 <div class="cursor fixed pointer-events-none border-2 border-white p-[0.6rem] rounded-full mix-blend-difference z-10 ease-linear"></div>
 
 <!-- Tristan Simpson Header -->
-<h2 class="ml-32 mt-48 font-black text-2xl pointer-events-none xl:text-2xl text-black font-sans" style="letter-spacing: 8px;" in:fade={{ delay: 300, duration: 1000 }}>
+<h2 class="ml-32 mt-20 2xl:mt-48 font-black text-lg pointer-events-none 2xl:text-2xl text-black font-sans" style="letter-spacing: 8px;" in:fade={{ delay: 300, duration: 1000 }}>
 	UNPARALLEL CONNECTION
 </h2>
 
 <!-- TELLU APP Header -->
-<h2 class="ml-32 font-black text-7xl pointer-events-none xl:text-9xl text-white tracking-widest mt-6 font-sans" in:fade={{ delay: 1800, duration: 1000 }}>
+<h2 class="ml-32 font-black text-8xl pointer-events-none 2xl:text-9xl text-white tracking-widest mt-6 font-sans" in:fade={{ delay: 1800, duration: 1000 }}>
 	TELLU APP
 </h2>
 
@@ -51,12 +47,14 @@
 <!-- Triangle Background -->
 <div class="box fixed top-0 w-screen h-screen bg-[#35d0ff]" style="z-index: -2;"></div>
 
-<!-- The 3D Wave Sphere -->
-<canvas bind:this={ThreeObject} class="fixed top-0 right-[-30rem] outline-none h-[100vh] w-[100vw]" style="z-index: -1;"/>
+<!-- The 3D Phone -->
+<canvas bind:this={ThreeObject} class="fixed top-0 right-[-22rem] xl:right-[-30rem] outline-none h-[100vh] w-[100vw]" style="z-index: -1;"/>
 
+
+<!-- CSS Styling -->
 <style>
 
-.box {
-	clip-path: polygon(0 0, 0% 100%, 100% 0);
-}
+	.box {
+		clip-path: polygon(0 0, 0% 100%, 100% 0);
+	}
 </style>
