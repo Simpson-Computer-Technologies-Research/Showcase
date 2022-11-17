@@ -1,0 +1,21 @@
+let t1 = gsap.timeline({
+		scrollTrigger: {
+		  trigger: SECTIONS[1],
+		  start: "top+=200 top",
+		  endTrigger: SECTIONS[2],
+		  end: "top top",
+		  scrub: 1,
+		},
+	  });
+	
+	  t1.fromTo(CAMERA.position, { y: 2 }, { y: 0 })
+			.to(SCENE.rotation, { y: 0.8 })
+			.to(SCENE.rotation, { y: 3 })
+			.to(SCENE.rotation, { z: 1.58 }, "key1")
+			.to(CAMERA.position, { z: 4 }, "key1")
+			.to(SCENE.rotation, { y: 0, z: 0 }, "key2")
+			.to(CAMERA.position, { z: 6, x: isDesktop ? -1 : 0  }, "key2")
+			.to(SCENE.rotation, { z: 0, y: 6.3 }, "key3")
+			.to(CAMERA.position, { x: isDesktop ? 0.8 : 0, y: 0 }, "key3");
+
+	  return () => { if(t1) t1.kill(); }

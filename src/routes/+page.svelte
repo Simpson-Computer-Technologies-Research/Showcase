@@ -1,13 +1,12 @@
 <script>
 	// Library Imports
 	import { setScene } from '$lib/ThreeObject.js';
-	import { fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
 
 	// Import Components
   	import Home from './components/Home.svelte';
   	import Polls from './components/Polls.svelte';
-  import Posts from './components/Posts.svelte';
+  	import Maps from './components/Maps.svelte';
     
 	// Create a new wavy sphere scene
 	let ThreeObject;
@@ -33,7 +32,7 @@
 <!-- Sections -->
 <Home/>
 <Polls/>
-<Posts/>
+<Maps/>
 
 <!-- The 3D Phone -->
 <canvas bind:this={ThreeObject} class="fixed top-0 right-[-22rem] xl:right-[-30rem] outline-none h-[100vh] w-[100vw]"/>

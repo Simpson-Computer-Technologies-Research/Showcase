@@ -16,7 +16,8 @@ ScrollTrigger.defaults({ scrub: 0, ease: "expo" });
 
 // Establish a new scene
 const SCENE = new THREE.Scene();
-SCENE.add(new THREE.AmbientLight("#FFFFFF", 2.9));
+let AMBIENT_LIGHT = new THREE.AmbientLight("#FFFFFF", 2.3);
+SCENE.add(AMBIENT_LIGHT);
 
 // Draco Loader for Blender Models
 const DRACO_LOADER = new DRACOLoader()
@@ -27,12 +28,29 @@ DRACO_LOADER.setDecoderConfig({ type: 'js' })
 const GLTF_LOADER = new GLTFLoader(new THREE.LoadingManager())
 GLTF_LOADER.setDRACOLoader(DRACO_LOADER)
 
-// Load the statue model
+// Phone Model Variable
 let PhoneModel;
+
+// Phone Wallpaper Manipulation
+const POSTS_WALLPAPER = new THREE.TextureLoader().load("./textures/posts_wallpaper.png");
+const POLLS_WALLPAPER = new THREE.TextureLoader().load("./textures/polls_wallpaper.png");
+const MAPS_WALLPAPER = new THREE.TextureLoader().load("./textures/maps_wallpaper.png");
+
+let isWallpaperChanged = false;
+const UpdatePhoneWallpaper = (model, wallpaper) => {
+	model.traverse((obj) => {
+		if (obj.name == "Body_Wallpaper_0") {
+			obj.material.map = wallpaper;
+			obj.material.needsUpdate = true;
+		};
+	});
+	PhoneModel = model;
+}
+
+// Load the phone model
 GLTF_LOADER.load('./iphone.gltf', (model) => {
-	// Phone Model
 	model.material = new THREE.MeshPhysicalMaterial({ roughness: 0, metalness: 1 })
-	PhoneModel = model.scene;
+	UpdatePhoneWallpaper(model.scene, POSTS_WALLPAPER)
 
 	// Add the phone model to the scene and rotate
 	// it so the screen is facing the user
@@ -42,16 +60,38 @@ GLTF_LOADER.load('./iphone.gltf', (model) => {
 	// Grab the sections from the page
 	const SECTIONS = document.querySelectorAll('.section')
 
-	// Post Types Section
-	gsap.to(PhoneModel.rotation, { x: Math.PI * 3.9, scrollTrigger: { trigger: SECTIONS[1] } });
-	gsap.to(SCENE.position, { x: -1, scrollTrigger: { trigger: SECTIONS[2] } });
+	// On Scroll Rotate the phone
+	gsap.timeline({ scrollTrigger: { trigger: SECTIONS[0], endTrigger: SECTIONS[2], scrub: 0 } })
+		.to(PhoneModel.rotation, {
+			x: Math.PI * 3.9,
+			scrollTrigger: { trigger: SECTIONS[1] }
+		})
+		.to(SECTIONS[1], {
+			onUpdate: () => {
+				// Increase phone model size
+				const SIZE = ((document.documentElement.scrollTop || document.body.scrollTop) + 1000) / 1000;
+				if (SIZE < 1.8) PhoneModel.scale.set(SIZE, SIZE);
 
-	gsap.to(PhoneModel.scale, {
-		x: 2, y: 2, 
-		scrollTrigger: { trigger: SECTIONS[1] },
-		onComplete: () => Controls.rotateSpeed = 0.01,
-		onReverseComplete: () => Controls.rotateSpeed = 0.1,
-	});
+				// Posts Wallpaper
+				if (SIZE < 1.3 & isWallpaperChanged) {
+					UpdatePhoneWallpaper(PhoneModel, POSTS_WALLPAPER);
+					isWallpaperChanged = false;
+				}
+
+				// Polls Wallpaper
+				else if (SIZE > 1.3 & SIZE < 2.2 & !isWallpaperChanged) {
+					UpdatePhoneWallpaper(PhoneModel, POLLS_WALLPAPER);
+					isWallpaperChanged = true;
+				}
+
+				// Maps Wallpaper
+				else if (SIZE > 2.2 & isWallpaperChanged) {
+					console.log(1)
+					UpdatePhoneWallpaper(PhoneModel, MAPS_WALLPAPER);
+					isWallpaperChanged = false;
+				}
+			}
+		});
 })
 
 // Camera
@@ -108,11 +148,6 @@ export const setScene = async (canvas) => {
 	Renderer.setPixelRatio(window.devicePixelRatio, 1);
 	Renderer.setSize(window.innerWidth, window.innerHeight);
 	Renderer.setClearColor(0x000000, 0);
-
-	// FIX THIS
-	// new RGBELoader().setPath('/textures/').load('cayley_interior_4k.hdr', (map) => {
-	//	SCENE.environment = new THREE.PMREMGenerator(Renderer).fromCubemap(map);
-	// });
 
 	// Orbital Controls
 	Controls = new OrbitControls(CAMERA, Renderer.domElement);
