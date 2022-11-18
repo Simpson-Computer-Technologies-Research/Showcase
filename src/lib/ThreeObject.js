@@ -16,8 +16,22 @@ ScrollTrigger.defaults({ scrub: 0, ease: "expo" });
 
 // Establish a new scene
 const SCENE = new THREE.Scene();
-let AMBIENT_LIGHT = new THREE.AmbientLight("#FFFFFF", 2.3);
-SCENE.add(AMBIENT_LIGHT);
+SCENE.add(new THREE.AmbientLight("#FFFFFF", 2.3));
+
+// Camera
+const CAMERA = new THREE.PerspectiveCamera(20, window.innerWidth / window.innerHeight, 1, 100);
+CAMERA.position.set(3, -0.5, 3);
+SCENE.add(CAMERA);
+
+// Point Lighting
+const POINT_LIGHTING = new THREE.PointLight();
+POINT_LIGHTING.position.set(1, 0, 1);
+SCENE.add(POINT_LIGHTING);
+
+// Directional Light
+const DIRECT_LIGHTING = new THREE.DirectionalLight("#ffffee", 1);
+DIRECT_LIGHTING.position.set(0, 0, -1);
+SCENE.add(DIRECT_LIGHTING);
 
 // Draco Loader for Blender Models
 const DRACO_LOADER = new DRACOLoader()
@@ -56,58 +70,38 @@ GLTF_LOADER.load('./iphone.gltf', (model) => {
 	// it so the screen is facing the user
     SCENE.add(PhoneModel);
 	PhoneModel.rotation.set(-0.3, 2.9, 0);
+	PhoneModel.scale.set(1.3, 1.3)
 	
-	// Grab the sections from the page
-	const SECTIONS = document.querySelectorAll('.section')
-
-	// On Scroll Rotate the phone
-	gsap.timeline({ scrollTrigger: { trigger: SECTIONS[0], endTrigger: SECTIONS[2], scrub: 0 } })
+	// Section 1 Rotation
+	gsap.timeline({ scrollTrigger: { scrub: 0, ease: "expo"} })
 		.to(PhoneModel.rotation, {
 			x: Math.PI * 3.9,
-			scrollTrigger: { trigger: SECTIONS[1] }
-		})
-		.to(SECTIONS[1], {
 			onUpdate: () => {
-				// Increase phone model size
-				const SIZE = ((document.documentElement.scrollTop || document.body.scrollTop) + 1000) / 1000;
-				if (SIZE < 1.8) PhoneModel.scale.set(SIZE, SIZE);
+				// Scroll Percentage
+				const SCROLL_PERCENTAGE = Math.round(
+					(window.scrollY / (document.body.offsetHeight - window.innerHeight)
+				) * 100);
 
 				// Posts Wallpaper
-				if (SIZE < 1.3 & isWallpaperChanged) {
+				if (SCROLL_PERCENTAGE < 20 & isWallpaperChanged) {
 					UpdatePhoneWallpaper(PhoneModel, POSTS_WALLPAPER);
 					isWallpaperChanged = false;
 				}
 
 				// Polls Wallpaper
-				else if (SIZE > 1.3 & SIZE < 2.2 & !isWallpaperChanged) {
+				else if (SCROLL_PERCENTAGE > 20 & SCROLL_PERCENTAGE < 50 & !isWallpaperChanged) {
 					UpdatePhoneWallpaper(PhoneModel, POLLS_WALLPAPER);
 					isWallpaperChanged = true;
 				}
 
 				// Maps Wallpaper
-				else if (SIZE > 2.2 & isWallpaperChanged) {
-					console.log(1)
+				else if (SCROLL_PERCENTAGE > 50 & isWallpaperChanged) {
 					UpdatePhoneWallpaper(PhoneModel, MAPS_WALLPAPER);
 					isWallpaperChanged = false;
 				}
 			}
-		});
-})
-
-// Camera
-const CAMERA = new THREE.PerspectiveCamera(20, window.innerWidth / window.innerHeight, 1, 100);
-CAMERA.position.set(3, -0.5, 3);
-SCENE.add(CAMERA);
-
-// Point Lighting
-const POINT_LIGHTING = new THREE.PointLight();
-POINT_LIGHTING.position.set(1, 0, 1);
-SCENE.add(POINT_LIGHTING);
-
-// Directional Light
-const DIRECT_LIGHTING = new THREE.DirectionalLight("#ffffee", 1);
-DIRECT_LIGHTING.position.set(0, 0, -1);
-SCENE.add(DIRECT_LIGHTING);
+		})
+});
 
 // Establish Renderer and Controls Variables
 let Renderer, Controls;
