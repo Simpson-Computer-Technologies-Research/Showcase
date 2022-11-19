@@ -6,18 +6,11 @@ let PhoneModel;
 
 // Load the 3D Object
 const GLTF_LOADER = new GLTFLoader(new THREE.LoadingManager(
-	// OnLoad
-	() => {
-		// Loading Header
-		const LOADING_HEADER = document.getElementById("loading-header");
-		LOADING_HEADER.classList.add("hidden");
-		LOADING_HEADER.classList.add("fade-out");
-
-		// Show Main Div
+	onload = () => {
+		document.getElementById("loading-header").classList.add("hidden", "fade-out");
 		document.getElementById("main-div").classList.remove("hidden");
-	}, 
-	// OnProgress
-	(obj) => console.log(`Loaded Object: ${obj}`)
+	},
+	onprogress = (obj) => console.log(`Object Loaded: ${obj}`)
 ));
 GLTF_LOADER.setDRACOLoader(DRACO_LOADER);
 
