@@ -1,3 +1,23 @@
+
+<script>
+	import { onMount } from 'svelte';
+    
+	// When the user loads up the website...
+	let ScrollPercentage;
+    onMount(async () => {
+		window.onscroll = () => {
+			ScrollPercentage = Math.round(
+				(window.scrollY / (document.body.offsetHeight - window.innerHeight)
+			) * 100);
+      	};
+    });
+</script>
+
+<!-- Bottom Scroll Indicator -->
+<div class="fixed z-20 h-4 bottom-0 bg-gray-50 w-screen">
+	<div class="fixed h-4 bottom-0 bg-[#000000]" style="width: {ScrollPercentage}%;"></div>
+</div>
+
 <!-- MORE INFO Section -->
 <section class="section">
 	<!-- MORE INFO Header -->
@@ -14,16 +34,13 @@
 	<div class="ml-32 z-10 mt-96 h-20 absolute">
 		<a class="font-black text-2xl text-black tracking-widest font-sans px-10 hover:text-white hover:px-20 bg-white shadow-xl hover:bg-black p-4 rounded-l-full duration-500 ease-in-out"
 			href="#contact"
-			rel="noopener noreferrer" target="_blank">
+		>
 			CONTACT US
 		</a>
 		<a class="font-black text-2xl text-black tracking-widest font-sans px-10 hover:text-white hover:px-20 bg-white shadow-xl hover:bg-black p-4 rounded-r-full duration-500 ease-in-out"
 			href="#terms"
-			rel="noopener noreferrer" target="_blank">
+		>
 			TERMS AND SERVICE
 		</a>
 	</div>
-    <h2 class="absolute bottom-32 right-32">PUT WAVY SPHERE HERE</h2>
-	<!-- Triangle Background -->
-	<div class="top-0 left-0 shadow-lg w-screen h-screen bg-[#35d0ff]" style="z-index: 0; clip-path: polygon(0 0, 0% 100%, 100% 0);"></div>
 </section>
