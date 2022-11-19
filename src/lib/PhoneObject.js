@@ -10,25 +10,25 @@ const GLTF_LOADER = new GLTFLoader(new THREE.LoadingManager(
 	() => {
 		// Loading Header
 		const LOADING_HEADER = document.getElementById("loading-header");
-		LOADING_HEADER.classList.add("hidden")
-		LOADING_HEADER.classList.add("fade-out")
+		LOADING_HEADER.classList.add("hidden");
+		LOADING_HEADER.classList.add("fade-out");
 
 		// Show Main Div
 		document.getElementById("main-div").classList.remove("hidden");
 	}, 
 	// OnProgress
 	(obj) => console.log(`Loaded Object: ${obj}`)
-))
-GLTF_LOADER.setDRACOLoader(DRACO_LOADER)
+));
+GLTF_LOADER.setDRACOLoader(DRACO_LOADER);
 
 // Load the phone model
 export const LoadPhoneObject = async () => GLTF_LOADER.load('./iphone.gltf', (model) => {
-	model.material = new THREE.MeshPhysicalMaterial({ roughness: 0, metalness: 1 })
+	model.material = new THREE.MeshPhysicalMaterial({ roughness: 0, metalness: 1 });
 
 	// Set the new PhoneModel variable
-	PhoneModel = Palette.UpdatePhoneWallpaper(model.scene, Palette.Wallpapers.Posts)
+	PhoneModel = Palette.UpdatePhoneWallpaper(model.scene, Palette.Wallpapers.Posts);
 	PhoneModel.rotation.set(-0.3, 2.9, 0);
-	PhoneModel.scale.set(1.3, 1.3)
+	PhoneModel.scale.set(1.3, 1.3);
 	SCENE.add(PhoneModel);
 	
 	// Phone Rotation
@@ -53,5 +53,5 @@ export const LoadPhoneObject = async () => GLTF_LOADER.load('./iphone.gltf', (mo
 				else if (SCROLL_PERCENTAGE > 50 & Palette.IsWallpaperChanged) 
 					PhoneModel = Palette.UpdatePhoneWallpaper(PhoneModel, Palette.Wallpapers.Maps);
 			}
-		})
+		});
 });

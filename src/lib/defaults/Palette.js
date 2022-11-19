@@ -19,14 +19,14 @@ export let Colors = {
     Secondary: "#FFFFFF",
     Header: "#000000",
     Subheader: "#000000"
-}
+};
 
 // Set the current wallpaper
 export let Wallpapers = {
     Posts: POSTS_WALLPAPER,
     Polls: POLLS_WALLPAPER,
     Maps: MAPS_WALLPAPER
-}
+};
 
 // Convert the color to light mode
 export const ToLightMode = () => {
