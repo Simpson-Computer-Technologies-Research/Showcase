@@ -30,9 +30,9 @@ export const LoadPhoneObject = async () => GLTF_LOADER.load('./iphone.gltf', (mo
 			x: Math.PI * 3.9,
 			onUpdate: () => {
 				// Scroll Percentage
-				const SCROLL_PERCENTAGE = Math.round(
-					(window.scrollY / (document.body.offsetHeight - window.innerHeight)
-				) * 100);
+				const SCROLL_PERCENTAGE = (
+					window.scrollY / (document.body.offsetHeight - window.innerHeight)
+				) * 100;
 
 				// Posts Wallpaper
 				if (SCROLL_PERCENTAGE < 20 & Palette.IsWallpaperChanged) 
