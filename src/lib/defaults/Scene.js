@@ -29,7 +29,7 @@ DIRECT_LIGHTING.position.set(0, 0, -1);
 SCENE.add(DIRECT_LIGHTING);
 
 // Establish Renderer and Controls Variables
-let Renderer, Controls;
+export let Renderer, Controls;
 
 // Animation function
 const animate = async () => {
@@ -61,7 +61,8 @@ export const SetScene = async (canvas) => {
 	Renderer = new THREE.WebGLRenderer({
 		powerPreference: "high-performance",
 		antialias: true,
-		canvas: canvas
+		canvas: canvas,
+		alpha: true
 	});
 	// Renderer Modifications
 	Renderer.setPixelRatio(window.devicePixelRatio, 1);
@@ -78,4 +79,8 @@ export const SetScene = async (canvas) => {
 
 	// Animate the sphere
 	await animate();
+
+	// Return the scene for modification
+	// in svelte components
+	return SCENE;
 };

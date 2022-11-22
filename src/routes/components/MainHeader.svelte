@@ -10,14 +10,14 @@
 	TELLU APP
 </h2>
 
-<!-- Download App Button -->
-<div class="ml-32 z-10 mt-96 h-20 absolute">
-	<a class="font-black text-2xl text-black tracking-widest font-sans px-10 hover:text-white hover:px-20 bg-white shadow-xl hover:bg-black p-4 rounded-l-full duration-500 ease-in-out"
+<!-- Buttons -->
+<div class="ml-32 z-10 2xl:mt-96 mt-[22rem] absolute">
+	<a class="font-black text-xl 2xl:text-2xl text-black tracking-widest font-sans px-8 2xl:px-10 hover:text-white hover:px-12 2xl:hover:px-20 bg-white shadow-xl hover:bg-black py-4 rounded-l-full duration-500 ease-in-out"
 		href="https://apps.apple.com/us/app/tellu/id6443764288?itsct=apps_box_link&itscg=30200"
 		rel="noopener noreferrer" target="_blank">
 		DOWNLOAD HERE
 	</a>
-	<a class="font-black text-2xl text-black tracking-widest font-sans px-10 hover:text-white hover:px-20 bg-white shadow-xl hover:bg-black p-4 rounded-r-full duration-500 ease-in-out"
+	<a class="font-black text-xl 2xl:text-2xl text-black tracking-widest font-sans px-8 2xl:px-10 hover:text-white hover:px-12 2xl:hover:px-20 bg-white shadow-xl hover:bg-black py-4 rounded-r-full duration-500 ease-in-out"
 		href="/info"
 		rel="noopener noreferrer" target="_blank">
 		MORE INFO
@@ -25,4 +25,17 @@
 </div>
 
 <!-- Triangle Background -->
-<div class="top-0 left-0 shadow-lg w-screen h-screen bg-[#35d0ff] z-50" style="clip-path: polygon(0 0, 0% 100%, 100% 0);"></div>
+<div class="top-0 left-0 w-screen h-screen bg-[#35d0ff] z-50" id="triangle-bg"></div>
+
+<style>
+	@media (min-width: 1536px) {
+		#triangle-bg {
+			clip-path: polygon(0 0, 0% 100%, 100% 0);
+		}
+	}
+	@media (min-width: 1024px) {
+		#triangle-bg {
+			clip-path: polygon(0 0, 100% 100%, 100% 100);
+		}
+	}
+</style>

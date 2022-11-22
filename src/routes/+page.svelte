@@ -1,15 +1,19 @@
 <script>
-	import MainHeader from "./components/MainHeader.svelte";
-	import { LoadPhoneObject } from "$lib/PhoneObject.js";
-	import Body from "./components/Body.svelte";
+	// Imports
+	import { LoadPhoneObjectWithGSAP, LoadPhoneObjectNoGSAP } from "$lib/PhoneObject.js";
 	import { SetScene } from "$lib/defaults/Scene.js";
+	import { Palette } from "$lib/Imports.js";
 	import { onMount } from "svelte";
+
+	// Component Imports
+	import MainHeader from "./components/MainHeader.svelte";
+	import Body from "./components/Body.svelte";
     
 	// When the user loads up the website...
 	let ThreeObject;
     onMount(async () => {
-		await SetScene(ThreeObject);
-		await LoadPhoneObject();
+		let Scene = await SetScene(ThreeObject);
+		await LoadPhoneObjectWithGSAP(Scene, Palette.Wallpapers.Posts);
 
 		// Custom Cursor
         const CUSTOM_CURSOR = document.querySelector(".cursor");
@@ -35,7 +39,7 @@
 </div>
 
 <!-- The 3D Phone -->
-<canvas bind:this={ThreeObject} class="fade-in fixed top-0 right-[-22rem] xl:right-[-30rem] outline-none h-screen w-screen"/>
+<canvas bind:this={ThreeObject} class="fade-in fixed top-0 xl:ml-96 outline-none h-screen w-screen"/>
 
 <!-- Styling -->
 <style>
