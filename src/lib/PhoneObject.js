@@ -12,7 +12,7 @@ const GLTF_LOADER = new GLTFLoader(new THREE.LoadingManager(
 GLTF_LOADER.setDRACOLoader(DRACO_LOADER);
 
 // Load the phone model with GSAP
-export const LoadPhoneObjectWithGSAP = async (Scene, Wallpaper) => GLTF_LOADER.load('./iphone.gltf', async (model) => {
+export const LoadPhoneObjectWithGSAP = async (Scene, Wallpaper) => GLTF_LOADER.load('./iphone.glb', async (model) => {
 	model.material = new THREE.MeshPhysicalMaterial({ roughness: 0, metalness: 1 });
 
 	// Set the new model variable
@@ -44,27 +44,4 @@ export const LoadPhoneObjectWithGSAP = async (Scene, Wallpaper) => GLTF_LOADER.l
 					model = Palette.UpdatePhoneWallpaper(model, Palette.Wallpapers.Maps);
 			}
 		});
-});
-
-// Load phone object with no gsap transitions
-export const LoadPhoneObjectNoGSAP = async (Scene, Wallpaper) => GLTF_LOADER.load('./iphone.gltf', async (model) => {
-	model.material = new THREE.MeshPhysicalMaterial({ roughness: 0, metalness: 1 });
-
-	// Set the new model variable
-	model = Palette.UpdatePhoneWallpaper(model.scene, Wallpaper);
-	model.scale.set(1.3, 1.3);
-	model.rotation.set(0, Math.PI, 0);
-	Scene.add(model);
-
-	// Window Resize Listener
-	window.addEventListener('resize', async () => {
-		if (window.innerWidth < 1200) {
-			model.scale.set(window.innerWidth / 800, window.innerWidth / 800);
-			OrbitalControls.rotateSpeed = 0;
-		} else {
-			PhoneModel.scale.set(1.3, 1.3);
-			PhoneModel.rotation.set(-0.3, 2.9, 0);
-			OrbitalControls.rotateSpeed = 0.1;
-		}
-	});
 });

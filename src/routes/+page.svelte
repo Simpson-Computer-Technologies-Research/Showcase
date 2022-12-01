@@ -1,13 +1,13 @@
 <script>
 	// Imports
-	import { LoadPhoneObjectWithGSAP, LoadPhoneObjectNoGSAP } from "$lib/PhoneObject.js";
+	import { LoadPhoneObjectWithGSAP } from "$lib/PhoneObject.js";
 	import { SetScene } from "$lib/defaults/Scene.js";
 	import { Palette } from "$lib/Imports.js";
 	import { onMount } from "svelte";
 
 	// Component Imports
-	import MainHeader from "./components/MainHeader.svelte";
-	import Body from "./components/Body.svelte";
+	import MainHeader from "./components/desktop/MainHeader.svelte";
+	import Body from "./components/desktop/Body.svelte";
     
 	// When the user loads up the website...
 	let ThreeObject;
@@ -32,14 +32,23 @@
 	<div class="mx-[40rem] h-1 flex justify-center items-center bg-gray-200 mt-10 rounded-full"></div>
 </div>
 
-<!-- Main Header -->
-<div id="main-div" class="fade-in hidden">
-	<MainHeader/>
-	<Body/>
+<!-- Desktop -->
+<div class="invisible lg:visible">
+	<div id="main-div" class="fade-in hidden">
+		<MainHeader/>
+		<Body/>
+	</div>
+
+	<!-- The 3D Phone -->
+	<canvas bind:this={ThreeObject} class="fade-in fixed top-0 ml-96 outline-none h-screen w-screen" style="z-index: 1;"/>
 </div>
 
-<!-- The 3D Phone -->
-<canvas bind:this={ThreeObject} class="fade-in fixed top-0 xl:ml-96 outline-none h-screen w-screen"/>
+<!-- Desktop -->
+<div class="visible lg:invisible">
+	<div id="main-div" class="fade-in hidden">
+		<img src="./maps_phone.png" alt="Maps Phone Image">
+	</div>
+</div>
 
 <!-- Styling -->
 <style>
