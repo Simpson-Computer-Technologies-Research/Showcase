@@ -42,8 +42,6 @@ const animate = async () => {
 // This is required for if the user resizes the site,
 // which is caught using the Window Resize Listener
 export const resize = async () => {
-	// Set the pixel ratio
-	Renderer.setPixelRatio(window.devicePixelRatio);
 	// Set the screen size
 	Renderer.setSize(window.innerWidth, window.innerHeight);
 	// Set the camera aspect ratio (most likely 16:9)
@@ -65,8 +63,7 @@ export const SetScene = async (canvas) => {
 		alpha: true
 	});
 	// Renderer Modifications
-	Renderer.setPixelRatio(window.devicePixelRatio, 1);
-	Renderer.setSize(window.innerWidth, window.innerHeight);
+	Renderer.setPixelRatio(window.devicePixelRatio);
 	Renderer.setClearColor(0x000000, 0);
 
 	// Orbital Controls

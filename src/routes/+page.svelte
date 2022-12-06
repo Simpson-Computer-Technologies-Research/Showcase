@@ -43,7 +43,7 @@
 	<canvas bind:this={ThreeObject} class="fade-in fixed top-0 ml-96 outline-none h-screen w-screen" style="z-index: 1;"/>
 </div>
 
-<!-- Desktop -->
+<!-- Mobile Test -->
 <div class="visible lg:invisible">
 	<div id="main-div" class="fade-in hidden">
 		<img src="./maps_phone.png" alt="Maps Phone Image">
