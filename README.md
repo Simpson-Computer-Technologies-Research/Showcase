@@ -1,7 +1,7 @@
-# TellU ![Stars](https://img.shields.io/github/stars/realTristan/TellU?color=brightgreen) ![Watchers](https://img.shields.io/github/watchers/realTristan/TellU?label=Watchers)
+# Showcase ![Stars](https://img.shields.io/github/stars/realTristan/TellU?color=brightgreen) ![Watchers](https://img.shields.io/github/watchers/realTristan/TellU?label=Watchers)
 ![Capture](https://user-images.githubusercontent.com/75189508/202169296-7b0beb2a-eff3-47c0-9f1e-5786541b40cb.PNG)
 
-# Preview
+# Example Preview
 
 https://user-images.githubusercontent.com/75189508/202590190-cba37b9d-47de-4a32-91c6-2424f780a296.mp4
 
