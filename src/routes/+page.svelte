@@ -28,7 +28,9 @@
 
 <!--THREEJS Object Loading Header -->
 <div id="loading-header" class="fade-in">
-	<h2 class="flex justify-center items-center mt-96 text-gray-700 text-3xl font-black tracking-widest">LOADING<mark style="color: #35d0ff; background: none;">&nbsp;TELLU APP</mark></h2>
+	<h2 class="flex justify-center items-center mt-96 text-gray-700 text-3xl font-black tracking-widest">
+		LOADING<mark style="color: #35d0ff; background: none;">&nbsp;TELLU APP</mark>
+	</h2>
 	<div class="mx-[40rem] h-1 flex justify-center items-center bg-gray-200 mt-10 rounded-full"></div>
 </div>
 

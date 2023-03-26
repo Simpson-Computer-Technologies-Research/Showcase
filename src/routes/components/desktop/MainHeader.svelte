@@ -11,12 +11,12 @@
 	</h2>
 
 	<div class="ml-32 z-10 mt-[4vh]">
-		<a class="font-black text-[1.3vw] text-black tracking-widest font-sans px-[2.5vw] hover:text-white hover:px-12 2xl:hover:px-20 bg-white shadow-xl hover:bg-black py-4 rounded-l-full"
+		<a class="font-black text-[1.3vw] text-black tracking-widest font-sans px-[2.5vw] hover:text-white hover:px-12 2xl:hover:px-20 bg-white shadow-xl hover:bg-black py-4 rounded-l-full duration-300"
 			href="https://apps.apple.com/us/app/tellu/id6443764288?itsct=apps_box_link&itscg=30200"
 			rel="noopener noreferrer" target="_blank">
 			DOWNLOAD HERE
 		</a>
-		<a class="font-black text-[1.3vw] text-black tracking-widest font-sans px-[2.5vw] hover:text-white hover:px-12 2xl:hover:px-20 bg-white shadow-xl hover:bg-black py-4 rounded-r-full"
+		<a class="font-black text-[1.3vw] text-black tracking-widest font-sans px-[2.5vw] hover:text-white hover:px-12 2xl:hover:px-20 bg-white shadow-xl hover:bg-black py-4 rounded-r-full duration-300"
 			href="/info"
 			rel="noopener noreferrer" target="_blank">
 			MORE INFO
