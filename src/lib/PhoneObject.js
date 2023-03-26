@@ -4,8 +4,15 @@ import { DRACO_LOADER, Controls as OrbitalControls } from "$lib/defaults/Scene.j
 // Load the 3D Object
 const GLTF_LOADER = new GLTFLoader(new THREE.LoadingManager(
 	onload = () => {
-		document.getElementById("loading-header").classList.add("hidden", "fade-out");
-		document.getElementById("main-div").classList.remove("hidden");
+		// Hide the loading header
+		document.getElementById("loading-header")
+			.classList
+			.add("hidden", "fade-out");
+
+		// Show the main div
+		document.getElementById("main-div")
+			.classList
+			.remove("hidden");
 	},
 	onprogress = (obj) => console.log(`Object Loaded: ${obj}`)
 ));

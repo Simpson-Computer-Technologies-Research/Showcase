@@ -15,7 +15,7 @@ const config = {
 			fallback: null
 		}),
 		paths: {
-			base: ""
+			base: "/Showcase"
 		}
 	}
 };
