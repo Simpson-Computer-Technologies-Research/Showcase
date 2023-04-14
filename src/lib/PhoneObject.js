@@ -1,5 +1,5 @@
 import { GLTFLoader, Palette, THREE, GSAP } from "$lib/Imports.js";
-import { DRACO_LOADER, Controls as OrbitalControls } from "$lib/defaults/Scene.js";
+import { DRACO_LOADER, Controls as OrbitalControls } from "$lib/base/Scene.js";
 
 // Load the 3D Object
 const GLTF_LOADER = new GLTFLoader(new THREE.LoadingManager(
