@@ -1,8 +1,8 @@
-<script>
+<script lang="ts">
 	// Imports
-	import { LoadPhoneObjectWithGSAP } from "$lib/PhoneObject.js";
-	import { SetScene } from "$lib/base/Scene.js";
-	import { Palette } from "$lib/Imports.js";
+	import { LoadPhoneObjectWithGSAP } from "$lib/phoneObject";
+	import { SetScene } from "$lib/base/scene";
+	import { Palette } from "$lib/imports";
 	import { onMount } from "svelte";
 
 	// Component Imports
@@ -10,21 +10,20 @@
 	import Body from "./components/desktop/Body.svelte";
 
 	// When the user loads up the website...
-	let ThreeObject;
+	let ThreeObject: any;
 	onMount(async () => {
-		let Scene = await SetScene(ThreeObject);
+		let Scene: any = await SetScene(ThreeObject);
 		await LoadPhoneObjectWithGSAP(Scene, Palette.Wallpapers.Posts);
 
 		// Custom Cursor
-		const CUSTOM_CURSOR = document.querySelector(".cursor");
-		document.addEventListener(
-			"mousemove",
-			(e) =>
-				(CUSTOM_CURSOR.style.cssText = `left: ${
-					e.clientX - 11.5
-				}px; top: ${e.clientY - 13}px;`),
-			false
-		);
+		const CUSTOM_CURSOR: Element | null = document.querySelector(".cursor");
+		if (CUSTOM_CURSOR) {
+			document.addEventListener("mousemove", (e: any) => {
+				CUSTOM_CURSOR.setAttribute("style",
+					"top: " + (e.pageY - 10) + "px; left: " + (e.pageX - 10) + "px;"
+				);
+			});
+		}
 	});
 </script>
 

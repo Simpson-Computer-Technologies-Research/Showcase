@@ -1,16 +1,14 @@
-<script>
+<script lang="ts">
 	// Imports
 	import { fade } from "svelte/transition";
 	import { onMount } from "svelte";
 
 	// When the user loads up the website...
-	let ScrollPercentage;
+	let ScrollPercentage: number = 0;
 	onMount(async () => {
 		window.onscroll = () => {
 			ScrollPercentage = Math.round(
-				(window.scrollY /
-					(document.body.offsetHeight - window.innerHeight)) *
-					100
+				(window.scrollY / (document.body.offsetHeight - window.innerHeight)) * 100
 			);
 		};
 	});
