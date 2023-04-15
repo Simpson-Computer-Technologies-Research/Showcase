@@ -1,13 +1,19 @@
-import { OrbitControls, THREE, GSAP, ScrollTrigger, DRACOLoader } from "$lib/imports";
+import {
+  OrbitControls,
+  THREE,
+  GSAP,
+  ScrollTrigger,
+  DRACOLoader,
+} from "$lib/imports";
 
 // GSAP Defaults
 GSAP.registerPlugin(ScrollTrigger);
 ScrollTrigger.defaults({ scrub: 0, ease: "expo" });
 
 // Draco Loader for Blender Models
-export const DRACO_LOADER = new DRACOLoader()
-DRACO_LOADER.setDecoderPath('/draco/')
-DRACO_LOADER.setDecoderConfig({ type: 'js' })
+export const DRACO_LOADER = new DRACOLoader();
+DRACO_LOADER.setDecoderPath("/draco/");
+DRACO_LOADER.setDecoderConfig({ type: "js" });
 
 // Establish a new scene
 export const SCENE = new THREE.Scene();
@@ -33,51 +39,51 @@ export let Renderer, Controls;
 
 // Animation function
 const animate = async () => {
-    Renderer.render(SCENE, CAMERA);
-	Controls.update();
-    requestAnimationFrame(animate);
-}
+  Renderer.render(SCENE, CAMERA);
+  Controls.update();
+  requestAnimationFrame(animate);
+};
 
 // The resize() function is used to resize the scene.
 // This is required for if the user resizes the site,
 // which is caught using the Window Resize Listener
 export const resize = async () => {
-	// Set the screen size
-	Renderer.setSize(window.innerWidth, window.innerHeight);
-	// Set the camera aspect ratio (most likely 16:9)
-	CAMERA.aspect = window.innerWidth / window.innerHeight;
-	// Update projection matrix
-	CAMERA.updateProjectionMatrix();
+  // Set the screen size
+  Renderer.setSize(window.innerWidth, window.innerHeight);
+  // Set the camera aspect ratio (most likely 16:9)
+  CAMERA.aspect = window.innerWidth / window.innerHeight;
+  // Update projection matrix
+  CAMERA.updateProjectionMatrix();
 };
 // Window Resize Listener
-window.addEventListener('resize', resize);
+window.addEventListener("resize", resize);
 
 // The SetScene() function is the primary function
 // for updating the sphere's scene data.
 export const SetScene = async (canvas) => {
-	// Scene Renderer
-	Renderer = new THREE.WebGLRenderer({
-		powerPreference: "high-performance",
-		antialias: true,
-		canvas: canvas,
-		alpha: true
-	});
-	// Renderer Modifications
-	Renderer.setPixelRatio(window.devicePixelRatio);
-	Renderer.setClearColor(0x000000, 0);
+  // Scene Renderer
+  Renderer = new THREE.WebGLRenderer({
+    powerPreference: "high-performance",
+    antialias: true,
+    canvas: canvas,
+    alpha: true,
+  });
+  // Renderer Modifications
+  Renderer.setPixelRatio(window.devicePixelRatio);
+  Renderer.setClearColor(0x000000, 0);
 
-	// Orbital Controls
-	Controls = new OrbitControls(CAMERA, Renderer.domElement);
-	Controls.enableZoom = false;
-	Controls.rotateSpeed = 0.1;
+  // Orbital Controls
+  Controls = new OrbitControls(CAMERA, Renderer.domElement);
+  Controls.enableZoom = false;
+  Controls.rotateSpeed = 0.1;
 
-	// Size the scene
-	await resize();
+  // Size the scene
+  await resize();
 
-	// Animate the sphere
-	await animate();
+  // Animate the sphere
+  await animate();
 
-	// Return the scene for modification
-	// in svelte components
-	return SCENE;
+  // Return the scene for modification
+  // in svelte components
+  return SCENE;
 };

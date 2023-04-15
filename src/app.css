@@ -5,7 +5,7 @@
 /* Scroll Bar */
 ::-webkit-scrollbar { display: none; }
 body, html {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    background-color: #FFFFFF;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  background-color: #ffffff;
 }
