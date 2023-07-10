@@ -6,8 +6,8 @@
   import { onMount } from "svelte";
 
   // Component Imports
-  import MainHeader from "./components/desktop/MainHeader.svelte";
-  import Body from "./components/desktop/Body.svelte";
+  import MainHeader from "./components/MainHeader.svelte";
+  import Body from "./components/Body.svelte";
 
   // When the user loads up the website...
   let ThreeObject: any;
@@ -20,8 +20,7 @@
     if (CUSTOM_CURSOR) {
       document.addEventListener("mousemove", (e: any) => {
         CUSTOM_CURSOR.setAttribute(
-          "style",
-          "top: " + (e.pageY - 10) + "px; left: " + (e.pageX - 10) + "px;"
+          "style", "top: " + (e.pageY - 10) + "px; left: " + (e.pageX - 10) + "px;"
         );
       });
     }

@@ -2,7 +2,7 @@ import { publish } from 'gh-pages';
 
 publish('build', {
         branch: 'gh-pages',
-        repo: 'https://github.com/realTristan/TellU.git',
+        repo: 'https://github.com/realTristan/Showcase.git',
         dotfiles: true,
         user: {
             name: 'Tristan Simpson',

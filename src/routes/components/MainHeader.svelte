@@ -23,7 +23,7 @@
 		</a>
 		<a
 			class="font-black text-[1.3vw] text-black tracking-widest font-sans px-[2.5vw] hover:text-white hover:px-12 2xl:hover:px-20 bg-white shadow-xl hover:bg-black py-4 rounded-r-full duration-300"
-			href="/info"
+			href="https://github.com/realTristan/Showcase"
 			rel="noopener noreferrer"
 			target="_blank"
 		>
