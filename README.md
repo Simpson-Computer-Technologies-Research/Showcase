@@ -1,6 +1,10 @@
 # Showcase ![Stars](https://img.shields.io/github/stars/realTristan/TellU?color=brightgreen) ![Watchers](https://img.shields.io/github/watchers/realTristan/TellU?label=Watchers)
+![image](https://github.com/realTristan/Showcase/assets/75189508/4ce8b0b0-4627-45cb-b952-9e8d17465cc8)
 
-https://user-images.githubusercontent.com/75189508/202590190-cba37b9d-47de-4a32-91c6-2424f780a296.mp4
+# Showcase
+
+https://github.com/realTristan/Showcase/assets/75189508/90cc9a6c-ebbd-490d-85ac-cccd28044747
+
 
 
 # License
