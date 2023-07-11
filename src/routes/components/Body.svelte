@@ -29,7 +29,7 @@
 		<!-- Moving POLLS Backround Header -->
 		<h1
 			style="left: -{ScrollPercentage}vw;"
-			class="outlined absolute top-[-20rem] text-9xl pointer-events-none text-black tracking-widest font-sans"
+			class="outlined absolute top-[-20rem] text-9xl pointer-events-none text-slate-950 tracking-widest font-sans"
 			out:fade={{ duration: 300 }}
 			in:fade={{ duration: 300 }}
 		>
@@ -38,7 +38,7 @@
 
 		<!-- Header -->
 		<h2
-			class="absolute ml-32 font-black text-8xl pointer-events-none 2xl:text-9xl text-black tracking-widest font-sans"
+			class="absolute ml-32 font-black text-8xl pointer-events-none 2xl:text-9xl text-slate-950 tracking-widest font-sans"
 			out:fade={{ duration: 300 }}
 			in:fade={{ delay: 300, duration: 300 }}
 		>
@@ -47,7 +47,7 @@
 
 		<!-- Paragraph -->
 		<h2
-			class="absolute ml-[8.5rem] mt-28 2xl:mt-36 font-thin text-lg pointer-events-none 2xl:text-2xl text-black font-sans"
+			class="absolute ml-[8.5rem] mt-28 2xl:mt-36 font-thin text-md xl:text-lg pointer-events-none 2xl:text-2xl text-slate-950 font-sans"
 			style="letter-spacing: 8px;"
 			out:fade={{ duration: 300 }}
 			in:fade={{ delay: 600, duration: 300 }}
@@ -67,7 +67,7 @@
 		<!-- Moving MAPS Background Header-->
 		<h1
 			style="right: -{ScrollPercentage - 30}vw;"
-			class="outlined z-0 absolute top-[-20rem] pointer-events-none text-black tracking-widest font-sans"
+			class="outlined z-0 absolute top-[-20rem] pointer-events-none text-slate-950 tracking-widest font-sans"
 			out:fade={{ duration: 300 }}
 			in:fade={{ duration: 300 }}
 		>
@@ -76,7 +76,7 @@
 
 		<!-- Header -->
 		<h2
-			class="absolute ml-32 font-black text-8xl pointer-events-none 2xl:text-9xl text-black tracking-widest font-sans"
+			class="absolute ml-32 font-black text-8xl pointer-events-none 2xl:text-9xl text-slate-950 tracking-widest font-sans"
 			out:fade={{ duration: 300 }}
 			in:fade={{ delay: 300, duration: 300 }}
 		>
@@ -85,7 +85,7 @@
 
 		<!-- Paragraph -->
 		<h2
-			class="absolute ml-[8.5rem] mt-28 2xl:mt-36 font-thin text-lg pointer-events-none 2xl:text-2xl text-black font-sans"
+			class="absolute ml-[8.5rem] mt-28 2xl:mt-36 font-thin text-lg pointer-events-none 2xl:text-2xl text-slate-950 font-sans"
 			style="letter-spacing: 8px;"
 			out:fade={{ duration: 300 }}
 			in:fade={{ delay: 600, duration: 300 }}
@@ -96,9 +96,10 @@
 			>
 		</h2>
 	{/if}
+	
 	<!-- Body Triangle Background -->
 	<div
-		class="w-screen h-[86vh] bg-[#35d0ff]"
+		class="w-screen h-[89vh] bg-[#35d0ff]"
 		style="clip-path: polygon(100% 0, 0% 100%, 100% 100%);"
 	/>
 </section>

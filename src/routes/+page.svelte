@@ -38,7 +38,7 @@
   <div class="mx-[40rem] h-1 flex justify-center items-center bg-gray-200 mt-10 rounded-full"/>
 </div>
 
-<!-- Desktop -->
+<!-- Main -->
 <div class="invisible lg:visible">
   <div id="main-div" class="fade-in hidden">
     <MainHeader />
@@ -48,16 +48,9 @@
   <!-- The 3D Phone -->
   <canvas
     bind:this={ThreeObject}
-    class="fade-in fixed top-0 ml-96 outline-none h-screen w-screen"
+    class="fade-in fixed top-0 ml-[28vw] outline-none"
     style="z-index: 1;"
   />
-</div>
-
-<!-- Mobile Test -->
-<div class="visible lg:invisible">
-  <div id="main-div" class="fade-in hidden">
-    <img src="./maps_phone.png" alt="Maps Phone Image" />
-  </div>
 </div>
 
 <!-- Styling -->

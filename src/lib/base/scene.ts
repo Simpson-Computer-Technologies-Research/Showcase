@@ -55,6 +55,7 @@ export const resize = async () => {
   // Update projection matrix
   CAMERA.updateProjectionMatrix();
 };
+
 // Window Resize Listener
 window.addEventListener("resize", resize);
 
@@ -68,6 +69,7 @@ export const SetScene = async (canvas) => {
     canvas: canvas,
     alpha: true,
   });
+  
   // Renderer Modifications
   Renderer.setPixelRatio(window.devicePixelRatio);
   Renderer.setClearColor(0x000000, 0);
