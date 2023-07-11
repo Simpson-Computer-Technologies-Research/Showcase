@@ -1,4 +1,4 @@
-# Showcase ![Stars](https://img.shields.io/github/stars/realTristan/TellU?color=brightgreen) ![Watchers](https://img.shields.io/github/watchers/realTristan/TellU?label=Watchers)
+# Showcase ![Stars](https://img.shields.io/github/stars/Simpson-Computer-Technologies-Research/Showcase?color=brightgreen) ![Watchers](https://img.shields.io/github/watchers/Simpson-Computer-Technologies-Research/Showcase?label=Watchers)
 ![image](https://github.com/realTristan/Showcase/assets/75189508/4ce8b0b0-4627-45cb-b952-9e8d17465cc8)
 
 # Showcase
