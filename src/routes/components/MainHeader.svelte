@@ -16,7 +16,7 @@
     <div class="flex flex-row mt-6">
       <a
         class="font-black text-[1.3vw] text-slate-950 tracking-widest px-[2.5vw] bg-white shadow-xl py-4 rounded-l-full hover:bg-black hover:text-white hover:px-12 2xl:hover:px-20"
-        href="https://github.com/realTristan/Showcase"
+        href="https://github.com/Simpson-Computer-Technologies-Research/Showcase"
         rel="noopener noreferrer"
         target="_blank"
       >
@@ -24,7 +24,7 @@
       </a>
       <a
         class="font-black ml-1 text-[1.3vw] text-slate-950 tracking-widest px-[2.5vw] bg-white shadow-xl py-4 rounded-r-full hover:bg-black hover:text-white hover:px-12 2xl:hover:px-20"
-        href="https://github.com/realTristan/Showcase"
+        href="https://github.com/Simpson-Computer-Technologies-Research/Showcase"
         rel="noopener noreferrer"
         target="_blank"
       >
