@@ -7,11 +7,11 @@
       UNPARALLEL CONNECTION
     </h2>
 
-    <!-- SHOWCASE Header -->
+    <!-- TELLU APP Header -->
     <h2
       class="z-10 font-black text-[6vw] pointer-events-none text-white tracking-widest"
     >
-      SHOWCASE
+      TELLU APP
     </h2>
     <div class="flex flex-row mt-6">
       <a
